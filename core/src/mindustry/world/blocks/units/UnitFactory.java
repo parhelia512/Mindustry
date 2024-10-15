@@ -285,6 +285,8 @@ public class UnitFactory extends UnitBlock{
 
                 rebuildCommands.run();
 
+                //Since the menu gets hidden when a new unit is selected, this is unnecessary.
+                /*
                 UnitType[] lastUnit = {unit()};
 
                 commands.update(() -> {
@@ -292,7 +294,7 @@ public class UnitFactory extends UnitBlock{
                         lastUnit[0] = unit();
                         rebuildCommands.run();
                     }
-                });
+                });*/
 
                 table.row();
 
@@ -389,7 +391,7 @@ public class UnitFactory extends UnitBlock{
                             unit.command().commandPosition(commandPos);
                         }
 
-                        unit.command().command(command == null && payload.unit.type.defaultCommand != null ? payload.unit.type.defaultCommand : command);
+                        unit.command().command(command == null && unit.type.defaultCommand != null ? unit.type.defaultCommand : command);
                     }
 
                     payload = new UnitPayload(unit);
