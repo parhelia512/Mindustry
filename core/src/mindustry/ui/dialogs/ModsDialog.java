@@ -238,11 +238,8 @@ public class ModsDialog extends BaseDialog{
                                     boolean hideDisabled = !mod.isSupported() || mod.hasUnmetDependencies() || mod.hasContentErrors();
                                     String shortDesc = mod.meta.shortDescription();
 
-                                    text.add("[accent]" + Strings.stripColors(mod.meta.displayName) + "\n" +
-                                        (shortDesc.length() > 0 ? "[lightgray]" + shortDesc + "\n" : "")
-                                        //so does anybody care about version?
-                                        //+ "[gray]v" + Strings.stripColors(trimText(item.meta.version)) + "\n"
-                                        + (mod.enabled() || hideDisabled ? "" : Core.bundle.get(mod.failed() ? "mod.failed" : "mod.disabled")))
+                                    text.add("[accent]" + Strings.stripColors(mod.meta.displayName) + "\n"
+                                        + (mod.enabled() || hideDisabled ? (shortDesc.length() > 0 ? "[lightgray]" + shortDesc : "") : Core.bundle.get(mod.failed() ? "mod.failed" : "mod.disabled")))
                                     .ellipsis(true).top().width(300f).growX().left();
 
                                     text.row();
